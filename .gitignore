@@ -1,0 +1,36 @@
+# Build results
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / IDE
+.vs/
+*.user
+*.suo
+*.userprefs
+*.sln.docstates
+
+# Test results
+[Tt]est[Rr]esults/
+*.trx
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# .NET caches & lock files
+project.lock.json
+*.cache
+
+# Runtime-generated SQLite database
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+
+.codegraph/

@@ -1,0 +1,35 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.pubxml.user
+
+# MSBuild / NuGet
+*.binlog
+*.nupkg
+*.snupkg
+project.lock.json
+
+# Test results
+[Tt]est[Rr]esults/
+*.trx
+
+# Local database files
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp

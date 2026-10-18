@@ -1,28 +1,6 @@
-/* =================================================================
-   CampusFlow — Database Setup (SATU FILE)
-   Target  : SQL Server 2016+ (default instance / Express / LocalDB)
-   Database: CampusFlow_DB
-
-   Cara pakai:
-       sqlcmd -S localhost -E -C -i "Database\CampusFlow.sql"
-
-   Sifat skrip: IDEMPOTEN & AMAN DIULANG
-   - Membuat database bila belum ada.
-   - Membuat tabel yang belum ada (tidak menghapus tabel/data yang ada).
-   - Membersihkan sisa data lama IF101/IF102/IF103 (bila masih ada).
-   - Mengisi data contoh HANYA jika tabel masih kosong.
-
-   Menggantikan dua file lama:
-     - schema.sql            (skema + seed)
-     - migrate_5_matkul.sql  (migrasi dari data lama)
-   ================================================================= */
-
 SET NOCOUNT ON;
 GO
 
-/* =================================================================
-   0. DATABASE
-   ================================================================= */
 IF DB_ID('CampusFlow_DB') IS NULL
 BEGIN
     PRINT 'Membuat database CampusFlow_DB...';
@@ -107,10 +85,7 @@ END
 GO
 
 /* =================================================================
-   2. BERSIHKAN DATA LAMA (IF101 / IF102 / IF103)
-   Dilakukan hanya jika data lama masih ada.
-   Urutan penting: hapus anak dulu (Tugas, JadwalKuliah), baru induk
-   (MataKuliah), karena foreign key akan menolak sebaliknya.
+   2. BERSIHKAN DATA LAMA
    ================================================================= */
 IF EXISTS (SELECT 1 FROM dbo.MataKuliah WHERE Kode IN ('IF101', 'IF102', 'IF103'))
 BEGIN
@@ -127,8 +102,7 @@ END
 GO
 
 /* =================================================================
-   3. SEED — MATA KULIAH (5 mata kuliah)
-   Hanya menambah kode yang belum ada.
+   3. SEED MATA KULIAH
    ================================================================= */
 INSERT INTO dbo.MataKuliah (Kode, Nama, SKS)
 SELECT v.Kode, v.Nama, v.SKS
@@ -143,8 +117,7 @@ WHERE NOT EXISTS (SELECT 1 FROM dbo.MataKuliah m WHERE m.Kode = v.Kode);
 GO
 
 /* =================================================================
-   4. SEED — JADWAL KULIAH (hanya bila tabel kosong)
-   Ruangan: IF101, IF102, IF103, IF104, IF105, IF107, IF108, LP1, LP2
+   4. SEED JADWAL KULIAH
    ================================================================= */
 IF NOT EXISTS (SELECT 1 FROM dbo.JadwalKuliah)
 BEGIN
@@ -166,8 +139,7 @@ END
 GO
 
 /* =================================================================
-   5. SEED — TUGAS (hanya bila tabel kosong)
-   Deadline relatif terhadap hari ini agar data contoh selalu relevan.
+   5. SEED TUGAS
    ================================================================= */
 IF NOT EXISTS (SELECT 1 FROM dbo.Tugas)
 BEGIN
@@ -186,7 +158,7 @@ END
 GO
 
 /* =================================================================
-   6. SEED — KEGIATAN (hanya bila tabel kosong)
+   6. SEED KEGIATAN
    ================================================================= */
 IF NOT EXISTS (SELECT 1 FROM dbo.Kegiatan)
 BEGIN

@@ -15,6 +15,11 @@ Topik: Sistem Manajemen Jadwal dan Aktivitas Mahasiswa
 
 Dokumen PRD dapat dilihat pada link berikut: [PRD CampusFlow.pdf](./PRD%20CampusFlow.pdf)
 
+Link Video Demo Aplikasi:
+```
+https://youtu.be/aZ_8hisM54c
+```
+
 <br>
 
 ## Ringkasan Aplikasi

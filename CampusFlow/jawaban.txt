@@ -1,0 +1,138 @@
+JAWABAN ETS PBKK - CampusFlow
+Christina Tan (5025241060) | Umi Lailatul Khotimah (5025241062)
+
+
+================================================================
+1. DESKRIPSI DAN RUANG LINGKUP FITUR APLIKASI DESKTOP RICH UI
+================================================================
+
+DESKRIPSI
+CampusFlow adalah aplikasi desktop Windows berbasis WPF (C#, XAML, .NET 8)
+dengan database SQL Server. Aplikasi ini menyatukan pencatatan jadwal kuliah,
+tugas & deadline, serta kegiatan nonkuliah dalam satu antarmuka, lalu
+menampilkannya kembali sebagai ringkasan dashboard dan kalender.
+
+Arsitektur memakai pola MVVM 4 lapis:
+View (XAML) -> ViewModel -> Repository (ADO.NET) -> SQL Server,
+dengan Model POCO dipakai lintas lapisan.
+
+Sisi "Rich UI" diwujudkan melalui design system di Themes/Theme.xaml:
+- Design token warna terpusat (navy, aksen indigo, danger/success/warning,
+  palet prioritas, status, dan kategori).
+- Custom ControlTemplate untuk Button, NavButton, TextBox, DataGrid,
+  DataGridCell, dan ProgressBar (bukan tampilan default WPF).
+- Layout shell: sidebar navigasi tetap + header halaman + area konten,
+  pemetaan ViewModel ke View lewat DataTemplate.
+- Komponen visual: kartu ringkasan, badge prioritas/status berwarna,
+  progress bar, grid kalender 7 kolom dengan penanda hari ini, empty state.
+- Tipografi berhierarki (H1/H2/Label/Muted) dan window responsif.
+
+
+RUANG LINGKUP FITUR (IN SCOPE)
+
+1. Dashboard
+   Ringkasan jumlah mata kuliah, jadwal hari ini, tugas mendatang, kegiatan
+   mendatang; progress bar progres tugas; daftar jadwal hari ini; 5 tugas
+   terdekat berbadge prioritas; kegiatan mendatang. Semua angka diambil dari
+   query database, bukan statis.
+
+2. Jadwal Kuliah
+   CRUD jadwal (mata kuliah, hari, waktu mulai/selesai, ruang) + pencarian
+   keyword dan filter hari.
+
+3. Tugas & Deadline
+   CRUD tugas (mata kuliah opsional, judul, deskripsi, deadline, prioritas,
+   status) + pencarian serta filter prioritas/status.
+
+4. Kegiatan
+   CRUD aktivitas nonkuliah (Organisasi, Belajar Mandiri, Pribadi) dengan
+   tanggal, waktu, lokasi, dan catatan.
+
+5. Kalender
+   Tampilan mingguan (grid 7 hari) dan harian, navigasi antar minggu,
+   penanda hari ini, serta warna berbeda per kategori Jadwal/Tugas/Kegiatan.
+
+6. Pengaturan
+   Info aplikasi, info koneksi database, dan tombol Uji Koneksi.
+
+7. Lapisan UX lintas fitur
+   Validasi form (kolom wajib, format waktu, waktu selesai harus setelah
+   waktu mulai), konfirmasi sebelum hapus, notifikasi hasil operasi, dan
+   penanganan error agar aplikasi tidak crash. Operasi database dijalankan
+   async agar UI tidak freeze.
+
+8. Persistensi & keamanan data
+   Data tersimpan permanen di SQL Server (CampusFlow_DB), seluruh query
+   parameterized (anti SQL injection), connection string di appsettings.json.
+   Database memakai primary key, foreign key, dan CHECK constraint.
+
+Struktur data: MataKuliah (master), JadwalKuliah (FK ke MataKuliah),
+Tugas (FK opsional ke MataKuliah), Kegiatan (berdiri sendiri).
+
+
+BATASAN (OUT OF SCOPE)
+- Single-user, tanpa login dan tanpa peran/hak akses.
+- Data master Mata Kuliah tidak punya halaman CRUD (diisi lewat script SQL).
+- Deteksi bentrok jadwal (FR-14) belum diimplementasikan.
+- Belum ada reminder, export data, atau sinkronisasi cloud.
+- Jadwal bersifat mingguan berulang (kolom Hari), bukan tanggal sekali.
+- Tidak memakai animasi; "rich" dicapai lewat styling dan komponen kustom.
+- Bergantung pada SQL Server lokal.
+
+
+================================================================
+2. LATAR BELAKANG DAN MANFAAT APLIKASI
+================================================================
+
+LATAR BELAKANG
+
+1. Informasi terpencil (fragmented)
+   Jadwal kuliah, tugas, dan kegiatan sering dicatat di tempat berbeda:
+   notes HP, grup chat, atau kertas. Tidak ada satu sumber data yang utuh.
+
+2. Risiko melewatkan deadline
+   Saat beberapa tugas berjalan bersamaan, mahasiswa mudah kehilangan jejak
+   mana yang harus diselesaikan lebih dulu.
+
+3. Tidak ada prioritas
+   Tanpa penanda prioritas, sulit menentukan urutan pengerjaan sehingga
+   tugas cenderung dikerjakan mendadak.
+
+4. Tidak ada gambaran cepat
+   Mahasiswa butuh tahu segera apa kegiatan hari ini dan tugas apa yang
+   deadlinenya paling dekat, dan itu tidak tersedia dalam satu tampilan.
+
+Selain itu, aplikasi ini dibuat sebagai pemenuhan tugas ETS mata kuliah PBKK
+(topik: Membuat aplikasi WPF dengan Rich UI), sehingga sekaligus menjadi
+sarana penerapan MVVM, data binding, design system, ADO.NET, dan SQL Server.
+
+
+MANFAAT
+
+Bagi pengguna (mahasiswa):
+- Sentralisasi data: jadwal, tugas, dan kegiatan dalam satu aplikasi.
+- Mengurangi risiko melewatkan deadline: deadline eksplisit, daftar tugas
+  terdekat di dashboard, dan tampilan kalender.
+- Prioritisasi terarah: badge prioritas dan status, plus filter untuk fokus
+  pada tugas tertentu.
+- Gambaran waktu menyeluruh: kalender mingguan/harian dengan warna kategori.
+- Keputusan cepat: dashboard merangkum aktivitas hari ini tanpa membuka menu
+  satu per satu.
+- Efisiensi: pencarian keyword dan filter menggantikan pencarian manual.
+- Data tidak hilang: tersimpan permanen di database.
+- UI konsisten dan jelas: kartu, badge, progress bar, empty state, dan
+  notifikasi hasil operasi.
+
+Bagi pengembangan perangkat lunak:
+- Mudah dipelihara karena pemisahan View, ViewModel, Repository, dan Model.
+- Aman dari SQL injection karena seluruh query parameterized.
+- Andal: error koneksi dan validasi ditangani tanpa membuat aplikasi crash.
+- Responsif: operasi database async sehingga UI tidak freeze.
+- Konsisten secara visual karena style dan warna terpusat di Theme.xaml.
+- Integritas data terjaga lewat primary key, foreign key, dan CHECK constraint.
+- Mudah direproduksi karena database dibangun dari satu script CampusFlow.sql.
+
+Bagi akademik:
+Menjadi bukti penerapan kompetensi PBKK: WPF/XAML, MVVM (ICommand,
+INotifyPropertyChanged, ObservableCollection), DataTemplate untuk navigasi,
+custom ControlTemplate untuk Rich UI, serta integrasi ADO.NET ke SQL Server.

@@ -1,0 +1,183 @@
+:root {
+    --thrift-utama: #7c3aed;
+    --thrift-gelap: #5b21b6;
+    --thrift-aksen: #fbbf24;
+    --thrift-teks: #111827;
+}
+
+body {
+    color: var(--thrift-teks);
+    background-color: #faf7ff;
+}
+
+.navbar-thrift {
+    background: linear-gradient(120deg, #5b21b6 0%, #7c3aed 60%, #a855f7 100%);
+    box-shadow: 0 2px 14px rgba(17, 24, 39, .16);
+}
+
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: var(--thrift-aksen);
+    color: #422006;
+    font-weight: 800;
+    margin-right: 6px;
+}
+
+.hero-thrift {
+    background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 55%, #c084fc 100%);
+    color: #fff;
+    padding: 70px 0 60px;
+}
+
+.hero-thrift .lead {
+    color: rgba(255, 255, 255, .86);
+}
+
+.hero-stat {
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: 14px;
+    padding: 14px 18px;
+}
+
+.kartu-produk {
+    border: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(76, 29, 149, .10);
+    transition: transform .18s ease, box-shadow .18s ease;
+    height: 100%;
+}
+
+.kartu-produk:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(76, 29, 149, .16);
+}
+
+.kartu-produk img {
+    height: 210px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.harga-thrift {
+    color: var(--thrift-utama);
+    font-weight: 700;
+}
+
+.badge-kondisi {
+    background-color: #ede9fe;
+    color: #5b21b6;
+    font-weight: 600;
+}
+
+.breadcrumb-thrift a {
+    color: var(--thrift-utama);
+    text-decoration: none;
+}
+
+.footer-thrift {
+    background-color: #1f1235;
+    color: #ddd6fe;
+}
+
+.footer-thrift a {
+    color: #ede9fe;
+    text-decoration: none;
+}
+
+.footer-thrift a:hover {
+    color: var(--thrift-aksen);
+}
+
+.btn-thrift {
+    background-color: var(--thrift-utama);
+    border-color: var(--thrift-utama);
+    color: #fff;
+}
+
+.btn-thrift:hover {
+    background-color: var(--thrift-gelap);
+    border-color: var(--thrift-gelap);
+    color: #fff;
+}
+
+.btn-outline-thrift {
+    border-color: var(--thrift-utama);
+    color: var(--thrift-utama);
+}
+
+.btn-outline-thrift:hover {
+    background-color: var(--thrift-utama);
+    color: #fff;
+}
+
+.foto-detail {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 26px rgba(76, 29, 149, .18);
+    background: #fff;
+}
+
+.foto-detail img {
+    width: 100%;
+    max-height: 460px;
+    object-fit: cover;
+}
+
+.halaman-auth {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 60%, #c084fc 100%);
+    padding: 40px 0;
+}
+
+.kartu-auth {
+    border: 0;
+    border-radius: 18px;
+    box-shadow: 0 22px 48px rgba(17, 24, 39, .28);
+}
+
+.ringkasan-pesanan {
+    border: 1px dashed #c4b5fd;
+    border-radius: 14px;
+    background: #f5f3ff;
+    padding: 16px;
+}
+
+.stepper-status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.stepper-status span {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #ede9fe;
+    color: #5b21b6;
+}
+
+.stepper-status span.aktif {
+    background: var(--thrift-utama);
+    color: #fff;
+}
+
+@media (max-width: 576px) {
+    .hero-thrift {
+        padding: 46px 0 40px;
+    }
+
+    .kartu-produk img {
+        height: 180px;
+    }
+}

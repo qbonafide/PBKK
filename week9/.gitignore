@@ -1,0 +1,24 @@
+# Dependensi PHP (hanya vendor di akar tiap project, bukan aset SB Admin 2)
+/latihan1/vendor/
+/latihan2a/vendor/
+/latihan2b/vendor/
+
+# Kredensial
+.env
+/latihan1/.env
+/latihan2a/.env
+/latihan2b/.env
+!**/.env.example
+
+# Cache, log, dan session CodeIgniter (isi ulang otomatis saat aplikasi jalan)
+**/writable/cache/*
+**/writable/logs/*
+**/writable/session/*
+**/writable/debugbar/*
+!**/writable/cache/index.html
+!**/writable/logs/index.html
+!**/writable/session/index.html
+!**/writable/debugbar/index.html
+
+# Arsip
+*.zip

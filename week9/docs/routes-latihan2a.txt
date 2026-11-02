@@ -1,0 +1,52 @@
+CodeIgniter v4.7.6 Command Line Tool - Server Time: 2026-11-02 20:32:39 UTC+07:00
+Required Before Filters: forcehttps, pagecache
+Required After Filters: pagecache, performance
+
++--------+----------------------------------+----------------------------------------------+--------------------------+---------------------+
+| Method | Route                            | Handler                                      | Before Filters           | After Filters       |
++--------+----------------------------------+----------------------------------------------+--------------------------+---------------------+
+| GET    | /                                | \App\Controllers\Home::index                 | csrf                     |                     |
+| GET    | login                            | \App\Controllers\Auth::login                 | csrf                     |                     |
+| GET    | logout                           | \App\Controllers\Auth::logout                | csrf                     |                     |
+| GET    | admin                            | \App\Controllers\Admin\Dashboard::index      | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/dashboard                  | \App\Controllers\Admin\Dashboard::index      | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/prodi                      | \App\Controllers\Admin\Prodi::index          | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/prodi/create               | \App\Controllers\Admin\Prodi::create         | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/prodi/([0-9]+)/edit        | \App\Controllers\Admin\Prodi::edit/$1        | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/dosen                      | \App\Controllers\Admin\Dosen::index          | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/dosen/create               | \App\Controllers\Admin\Dosen::create         | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/dosen/([0-9]+)/edit        | \App\Controllers\Admin\Dosen::edit/$1        | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/mahasiswa                  | \App\Controllers\Admin\Mahasiswa::index      | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/mahasiswa/create           | \App\Controllers\Admin\Mahasiswa::create     | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/mahasiswa/([0-9]+)/edit    | \App\Controllers\Admin\Mahasiswa::edit/$1    | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/matakuliah                 | \App\Controllers\Admin\Matakuliah::index     | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/matakuliah/create          | \App\Controllers\Admin\Matakuliah::create    | csrf auth role:admin     | role:admin auth     |
+| GET    | admin/matakuliah/([0-9]+)/edit   | \App\Controllers\Admin\Matakuliah::edit/$1   | csrf auth role:admin     | role:admin auth     |
+| GET    | dosen                            | \App\Controllers\Dosen\Dashboard::index      | csrf auth role:dosen     | role:dosen auth     |
+| GET    | dosen/dashboard                  | \App\Controllers\Dosen\Dashboard::index      | csrf auth role:dosen     | role:dosen auth     |
+| GET    | dosen/kelas                      | \App\Controllers\Dosen\Nilai::index          | csrf auth role:dosen     | role:dosen auth     |
+| GET    | dosen/nilai/([0-9]+)             | \App\Controllers\Dosen\Nilai::form/$1        | csrf auth role:dosen     | role:dosen auth     |
+| GET    | dosen/perwalian                  | \App\Controllers\Dosen\Perwalian::index      | csrf auth role:dosen     | role:dosen auth     |
+| GET    | mahasiswa                        | \App\Controllers\Mahasiswa\Dashboard::index  | csrf auth role:mahasiswa | role:mahasiswa auth |
+| GET    | mahasiswa/dashboard              | \App\Controllers\Mahasiswa\Dashboard::index  | csrf auth role:mahasiswa | role:mahasiswa auth |
+| GET    | mahasiswa/profil                 | \App\Controllers\Mahasiswa\Dashboard::profil | csrf auth role:mahasiswa | role:mahasiswa auth |
+| GET    | mahasiswa/krs                    | \App\Controllers\Mahasiswa\Krs::index        | csrf auth role:mahasiswa | role:mahasiswa auth |
+| GET    | mahasiswa/krs/cetak              | \App\Controllers\Mahasiswa\Krs::cetak        | csrf auth role:mahasiswa | role:mahasiswa auth |
+| GET    | mahasiswa/khs                    | \App\Controllers\Mahasiswa\Khs::index        | csrf auth role:mahasiswa | role:mahasiswa auth |
+| GET    | mahasiswa/khs/cetak              | \App\Controllers\Mahasiswa\Khs::cetak        | csrf auth role:mahasiswa | role:mahasiswa auth |
+| POST   | login                            | \App\Controllers\Auth::attempt               | csrf                     |                     |
+| POST   | admin/prodi                      | \App\Controllers\Admin\Prodi::store          | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/prodi/([0-9]+)             | \App\Controllers\Admin\Prodi::update/$1      | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/prodi/([0-9]+)/delete      | \App\Controllers\Admin\Prodi::delete/$1      | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/dosen                      | \App\Controllers\Admin\Dosen::store          | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/dosen/([0-9]+)             | \App\Controllers\Admin\Dosen::update/$1      | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/dosen/([0-9]+)/delete      | \App\Controllers\Admin\Dosen::delete/$1      | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/mahasiswa                  | \App\Controllers\Admin\Mahasiswa::store      | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/mahasiswa/([0-9]+)         | \App\Controllers\Admin\Mahasiswa::update/$1  | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/mahasiswa/([0-9]+)/delete  | \App\Controllers\Admin\Mahasiswa::delete/$1  | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/matakuliah                 | \App\Controllers\Admin\Matakuliah::store     | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/matakuliah/([0-9]+)        | \App\Controllers\Admin\Matakuliah::update/$1 | csrf auth role:admin     | role:admin auth     |
+| POST   | admin/matakuliah/([0-9]+)/delete | \App\Controllers\Admin\Matakuliah::delete/$1 | csrf auth role:admin     | role:admin auth     |
+| POST   | dosen/nilai/([0-9]+)             | \App\Controllers\Dosen\Nilai::simpan/$1      | csrf auth role:dosen     | role:dosen auth     |
+| POST   | mahasiswa/krs                    | \App\Controllers\Mahasiswa\Krs::simpan       | csrf auth role:mahasiswa | role:mahasiswa auth |
++--------+----------------------------------+----------------------------------------------+--------------------------+---------------------+

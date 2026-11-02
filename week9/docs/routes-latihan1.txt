@@ -1,0 +1,51 @@
+CodeIgniter v4.7.6 Command Line Tool - Server Time: 2026-11-02 20:32:38 UTC+07:00
+Required Before Filters: forcehttps, pagecache
+Required After Filters: pagecache, performance
+
++--------+--------------------------------------+---------------------------------------------------+-------------------------+--------------------+
+| Method | Route                                | Handler                                           | Before Filters          | After Filters      |
++--------+--------------------------------------+---------------------------------------------------+-------------------------+--------------------+
+| GET    | /                                    | \App\Controllers\Pages::index                     | csrf                    |                    |
+| GET    | tentang                              | \App\Controllers\Pages::about                     | csrf                    |                    |
+| GET    | kontak                               | \App\Controllers\Pages::contact                   | csrf                    |                    |
+| GET    | kamar                                | \App\Controllers\Kamar::index                     | csrf                    |                    |
+| GET    | kamar/([^/]+)                        | \App\Controllers\Kamar::detail/$1                 | csrf                    |                    |
+| GET    | login                                | \App\Controllers\Auth::login                      | csrf                    |                    |
+| GET    | logout                               | \App\Controllers\Auth::logout                     | csrf                    |                    |
+| GET    | berkas/ktp/([^/]+)                   | \App\Controllers\Berkas::ktp/$1                   | csrf auth               | auth               |
+| GET    | berkas/bukti/([^/]+)                 | \App\Controllers\Berkas::bukti/$1                 | csrf auth               | auth               |
+| GET    | admin                                | \App\Controllers\Admin\Dashboard::index           | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/dashboard                      | \App\Controllers\Admin\Dashboard::index           | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/kamar                          | \App\Controllers\Admin\Kamar::index               | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/kamar/create                   | \App\Controllers\Admin\Kamar::create              | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/kamar/([0-9]+)/edit            | \App\Controllers\Admin\Kamar::edit/$1             | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/penghuni                       | \App\Controllers\Admin\Penghuni::index            | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/penghuni/create                | \App\Controllers\Admin\Penghuni::create           | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/penghuni/([0-9]+)/edit         | \App\Controllers\Admin\Penghuni::edit/$1          | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/pembayaran                     | \App\Controllers\Admin\Pembayaran::index          | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/pembayaran/create              | \App\Controllers\Admin\Pembayaran::create         | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/pembayaran/([0-9]+)/edit       | \App\Controllers\Admin\Pembayaran::edit/$1        | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/users                          | \App\Controllers\Admin\Users::index               | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/users/create                   | \App\Controllers\Admin\Users::create              | csrf auth role:admin    | role:admin auth    |
+| GET    | admin/users/([0-9]+)/edit            | \App\Controllers\Admin\Users::edit/$1             | csrf auth role:admin    | role:admin auth    |
+| GET    | penghuni                             | \App\Controllers\Penghuni\Dashboard::index        | csrf auth role:penghuni | role:penghuni auth |
+| GET    | penghuni/dashboard                   | \App\Controllers\Penghuni\Dashboard::index        | csrf auth role:penghuni | role:penghuni auth |
+| GET    | penghuni/tagihan                     | \App\Controllers\Penghuni\Tagihan::index          | csrf auth role:penghuni | role:penghuni auth |
+| POST   | kontak                               | \App\Controllers\Pages::sendContact               | csrf                    |                    |
+| POST   | login                                | \App\Controllers\Auth::attempt                    | csrf                    |                    |
+| POST   | admin/kamar                          | \App\Controllers\Admin\Kamar::store               | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/kamar/([0-9]+)                 | \App\Controllers\Admin\Kamar::update/$1           | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/kamar/([0-9]+)/delete          | \App\Controllers\Admin\Kamar::delete/$1           | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/penghuni                       | \App\Controllers\Admin\Penghuni::store            | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/penghuni/([0-9]+)              | \App\Controllers\Admin\Penghuni::update/$1        | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/penghuni/([0-9]+)/delete       | \App\Controllers\Admin\Penghuni::delete/$1        | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/pembayaran                     | \App\Controllers\Admin\Pembayaran::store          | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/pembayaran/([0-9]+)            | \App\Controllers\Admin\Pembayaran::update/$1      | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/pembayaran/([0-9]+)/delete     | \App\Controllers\Admin\Pembayaran::delete/$1      | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/pembayaran/([0-9]+)/verifikasi | \App\Controllers\Admin\Pembayaran::verifikasi/$1  | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/pembayaran/([0-9]+)/tolak      | \App\Controllers\Admin\Pembayaran::tolak/$1       | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/users                          | \App\Controllers\Admin\Users::store               | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/users/([0-9]+)                 | \App\Controllers\Admin\Users::update/$1           | csrf auth role:admin    | role:admin auth    |
+| POST   | admin/users/([0-9]+)/delete          | \App\Controllers\Admin\Users::delete/$1           | csrf auth role:admin    | role:admin auth    |
+| POST   | penghuni/tagihan/([0-9]+)/bayar      | \App\Controllers\Penghuni\Tagihan::uploadBukti/$1 | csrf auth role:penghuni | role:penghuni auth |
++--------+--------------------------------------+---------------------------------------------------+-------------------------+--------------------+

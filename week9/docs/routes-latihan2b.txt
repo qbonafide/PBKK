@@ -1,0 +1,45 @@
+CodeIgniter v4.7.6 Command Line Tool - Server Time: 2026-11-02 20:32:40 UTC+07:00
+Required Before Filters: forcehttps, pagecache
+Required After Filters: pagecache, performance
+
++--------+--------------------------------+-----------------------------------------------+----------------------+-----------------+
+| Method | Route                          | Handler                                       | Before Filters       | After Filters   |
++--------+--------------------------------+-----------------------------------------------+----------------------+-----------------+
+| GET    | /                              | \App\Controllers\Home::index                  | csrf                 |                 |
+| GET    | katalog                        | \App\Controllers\Katalog::index               | csrf                 |                 |
+| GET    | produk/([^/]+)                 | \App\Controllers\Katalog::detail/$1           | csrf                 |                 |
+| GET    | keranjang                      | \App\Controllers\Keranjang::index             | csrf                 |                 |
+| GET    | login                          | \App\Controllers\Auth::login                  | csrf                 |                 |
+| GET    | daftar                         | \App\Controllers\Auth::register               | csrf                 |                 |
+| GET    | logout                         | \App\Controllers\Auth::logout                 | csrf                 |                 |
+| GET    | checkout                       | \App\Controllers\Checkout::index              | csrf auth            | auth            |
+| GET    | checkout/masuk                 | \App\Controllers\Checkout::simpanTujuan       | csrf auth            | auth            |
+| GET    | pesanan                        | \App\Controllers\Pesanan::index               | csrf auth            | auth            |
+| GET    | pesanan/([0-9]+)               | \App\Controllers\Pesanan::detail/$1           | csrf auth            | auth            |
+| GET    | berkas/bukti/([^/]+)           | \App\Controllers\Berkas::bukti/$1             | csrf auth            | auth            |
+| GET    | admin                          | \App\Controllers\Admin\Dashboard::index       | csrf auth role:admin | role:admin auth |
+| GET    | admin/dashboard                | \App\Controllers\Admin\Dashboard::index       | csrf auth role:admin | role:admin auth |
+| GET    | admin/kategori                 | \App\Controllers\Admin\Kategori::index        | csrf auth role:admin | role:admin auth |
+| GET    | admin/kategori/create          | \App\Controllers\Admin\Kategori::create       | csrf auth role:admin | role:admin auth |
+| GET    | admin/kategori/([0-9]+)/edit   | \App\Controllers\Admin\Kategori::edit/$1      | csrf auth role:admin | role:admin auth |
+| GET    | admin/produk                   | \App\Controllers\Admin\Produk::index          | csrf auth role:admin | role:admin auth |
+| GET    | admin/produk/create            | \App\Controllers\Admin\Produk::create         | csrf auth role:admin | role:admin auth |
+| GET    | admin/produk/([0-9]+)/edit     | \App\Controllers\Admin\Produk::edit/$1        | csrf auth role:admin | role:admin auth |
+| GET    | admin/pesanan                  | \App\Controllers\Admin\Pesanan::index         | csrf auth role:admin | role:admin auth |
+| GET    | admin/pesanan/([0-9]+)         | \App\Controllers\Admin\Pesanan::detail/$1     | csrf auth role:admin | role:admin auth |
+| POST   | keranjang                      | \App\Controllers\Keranjang::tambah            | csrf                 |                 |
+| POST   | keranjang/update               | \App\Controllers\Keranjang::update            | csrf                 |                 |
+| POST   | keranjang/hapus                | \App\Controllers\Keranjang::hapus             | csrf                 |                 |
+| POST   | login                          | \App\Controllers\Auth::attempt                | csrf                 |                 |
+| POST   | daftar                         | \App\Controllers\Auth::simpanRegister         | csrf                 |                 |
+| POST   | checkout                       | \App\Controllers\Checkout::proses             | csrf auth            | auth            |
+| POST   | pesanan/([0-9]+)/bukti         | \App\Controllers\Pesanan::uploadBukti/$1      | csrf auth            | auth            |
+| POST   | pesanan/([0-9]+)/batal         | \App\Controllers\Pesanan::batal/$1            | csrf auth            | auth            |
+| POST   | admin/kategori                 | \App\Controllers\Admin\Kategori::store        | csrf auth role:admin | role:admin auth |
+| POST   | admin/kategori/([0-9]+)        | \App\Controllers\Admin\Kategori::update/$1    | csrf auth role:admin | role:admin auth |
+| POST   | admin/kategori/([0-9]+)/delete | \App\Controllers\Admin\Kategori::delete/$1    | csrf auth role:admin | role:admin auth |
+| POST   | admin/produk                   | \App\Controllers\Admin\Produk::store          | csrf auth role:admin | role:admin auth |
+| POST   | admin/produk/([0-9]+)          | \App\Controllers\Admin\Produk::update/$1      | csrf auth role:admin | role:admin auth |
+| POST   | admin/produk/([0-9]+)/delete   | \App\Controllers\Admin\Produk::delete/$1      | csrf auth role:admin | role:admin auth |
+| POST   | admin/pesanan/([0-9]+)/status  | \App\Controllers\Admin\Pesanan::ubahStatus/$1 | csrf auth role:admin | role:admin auth |
++--------+--------------------------------+-----------------------------------------------+----------------------+-----------------+

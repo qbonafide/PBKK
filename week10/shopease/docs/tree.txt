@@ -1,0 +1,154 @@
+shopease/
+├── .env.example
+├── .gitignore
+├── composer.json
+├── spark
+├── README.md
+├── app/
+│   ├── Config/
+│   │   ├── App.php
+│   │   ├── Database.php
+│   │   ├── Filters.php
+│   │   ├── Pager.php
+│   │   ├── Routes.php
+│   │   └── Routing.php
+│   ├── Controllers/
+│   │   ├── Admin/
+│   │   │   ├── CategoryController.php
+│   │   │   ├── DashboardController.php
+│   │   │   ├── OrderController.php
+│   │   │   ├── PaymentController.php
+│   │   │   ├── ProductController.php
+│   │   │   ├── ReportController.php
+│   │   │   └── ShipmentController.php
+│   │   ├── AuthController.php
+│   │   ├── BaseController.php
+│   │   ├── CartController.php
+│   │   ├── CheckoutController.php
+│   │   ├── HomeController.php
+│   │   ├── OrderController.php
+│   │   └── ProductController.php
+│   ├── Database/
+│   │   ├── Migrations/
+│   │   │   ├── 2026-11-01-000001_CreateUsers.php
+│   │   │   ├── 2026-11-01-000002_CreateCategories.php
+│   │   │   ├── 2026-11-01-000003_CreateProducts.php
+│   │   │   ├── 2026-11-01-000004_CreateAddresses.php
+│   │   │   ├── 2026-11-01-000005_CreateCarts.php
+│   │   │   ├── 2026-11-01-000006_CreateCartItems.php
+│   │   │   ├── 2026-11-01-000007_CreateOrders.php
+│   │   │   ├── 2026-11-01-000008_CreateOrderItems.php
+│   │   │   ├── 2026-11-01-000009_CreatePayments.php
+│   │   │   └── 2026-11-01-000010_CreateShipments.php
+│   │   └── Seeds/
+│   │       ├── AddressSeeder.php
+│   │       ├── CategorySeeder.php
+│   │       ├── DatabaseSeeder.php
+│   │       ├── ProductSeeder.php
+│   │       └── UserSeeder.php
+│   ├── Filters/
+│   │   ├── AuthFilter.php
+│   │   └── GuestFilter.php
+│   ├── Helpers/
+│   │   └── shopease_helper.php
+│   ├── Models/
+│   │   ├── AddressModel.php
+│   │   ├── CartItemModel.php
+│   │   ├── CartModel.php
+│   │   ├── CategoryModel.php
+│   │   ├── OrderItemModel.php
+│   │   ├── OrderModel.php
+│   │   ├── PaymentModel.php
+│   │   ├── ProductModel.php
+│   │   ├── ShipmentModel.php
+│   │   └── UserModel.php
+│   └── Views/
+│       ├── admin/
+│       │   ├── categories/
+│       │   │   ├── form.php
+│       │   │   └── index.php
+│       │   ├── orders/
+│       │   │   ├── detail.php
+│       │   │   └── index.php
+│       │   ├── payments/
+│       │   │   └── index.php
+│       │   ├── products/
+│       │   │   ├── form.php
+│       │   │   └── index.php
+│       │   ├── reports/
+│       │   │   └── index.php
+│       │   └── dashboard.php
+│       ├── auth/
+│       │   ├── login.php
+│       │   └── register.php
+│       ├── cart/
+│       │   └── index.php
+│       ├── checkout/
+│       │   └── index.php
+│       ├── errors/
+│       │   └── html/
+│       │       ├── error_400.php
+│       │       ├── error_403.php
+│       │       ├── error_404.php
+│       │       ├── error_exception.php
+│       │       └── production.php
+│       ├── frontend/
+│       │   ├── about.php
+│       │   ├── catalog.php
+│       │   ├── contact.php
+│       │   ├── home.php
+│       │   └── product_detail.php
+│       ├── layouts/
+│       │   ├── admin.php
+│       │   └── main.php
+│       ├── orders/
+│       │   ├── detail.php
+│       │   └── index.php
+│       └── partials/
+│           ├── admin_sidebar.php
+│           ├── flash.php
+│           ├── footer.php
+│           ├── navbar.php
+│           ├── pager.php
+│           └── product_card.php
+├── database/
+│   └── db_shopease.sql
+├── public/
+│   ├── assets/
+│   │   ├── css/
+│   │   │   ├── app.css
+│   │   │   └── bootstrap.min.css
+│   │   ├── img/
+│   │   │   ├── favicon.svg
+│   │   │   └── product-placeholder.svg
+│   │   └── js/
+│   │       ├── bootstrap.bundle.min.js
+│   │       └── chart.umd.min.js
+│   ├── uploads/
+│   │   ├── payments/
+│   │   └── products/
+│   │       ├── botol-minum-termal-500ml.png
+│   │       ├── celana-chino-slim.png
+│   │       ├── dompet-kulit-sintetis.png
+│   │       ├── hoodie-oversize.png
+│   │       ├── jaket-bomber.png
+│   │       ├── kacamata-anti-uv.png
+│   │       ├── kaos-polos-premium.png
+│   │       ├── kemeja-flanel-lengan-panjang.png
+│   │       ├── keyboard-mekanik-tkl.png
+│   │       ├── lampu-meja-led.png
+│   │       ├── mouse-wireless-silent.png
+│   │       ├── power-bank-10000mah.png
+│   │       ├── smart-watch-fit-s2.png
+│   │       ├── sneakers-casual-daily.png
+│   │       ├── speaker-bluetooth-mini.png
+│   │       ├── tas-ransel-laptop-14-inci.png
+│   │       ├── topi-baseball-katun.png
+│   │       └── wireless-headphone-bt-100.png
+│   ├── favicon.ico
+│   ├── index.php
+│   └── robots.txt
+└── docs/
+    ├── screenshots/
+    ├── routes-output.txt
+    └── tree.txt

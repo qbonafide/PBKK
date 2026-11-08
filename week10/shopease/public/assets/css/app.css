@@ -1,0 +1,560 @@
+/* ==========================================================================
+   ShopEase — gaya aplikasi
+   Bootstrap 5 dipakai sebagai fondasi; file ini hanya menambahkan
+   design token dan komponen khas ShopEase.
+   ========================================================================== */
+
+:root {
+    --se-ink: #0f172a;
+    --se-ink-soft: #4b5b70;
+    --se-line: #e2e8f0;
+    --se-surface: #f6f8fb;
+    --se-white: #ffffff;
+    --se-brand: #2f4bd8;
+    --se-brand-dark: #23389f;
+    --se-brand-soft: #eef1ff;
+    --se-success: #12805c;
+    --se-warning: #b25e00;
+    --se-danger: #c0392b;
+    --se-radius: 12px;
+    --se-radius-sm: 8px;
+    --se-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --se-shadow-hover: 0 4px 16px -8px rgba(15, 23, 42, 0.22);
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color: var(--se-ink);
+    background-color: var(--se-white);
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-soft {
+    color: var(--se-ink-soft) !important;
+}
+
+.section-pad {
+    padding: 3.5rem 0;
+}
+
+/* ---------------------------------------------------------------- navbar */
+.se-navbar {
+    background-color: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--se-line);
+    backdrop-filter: blur(8px);
+}
+
+.se-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    color: var(--se-ink);
+}
+
+.se-brand span {
+    color: var(--se-brand);
+}
+
+.se-nav-link {
+    color: var(--se-ink-soft);
+    font-weight: 500;
+    padding: 0.5rem 0.7rem;
+    border-radius: var(--se-radius-sm);
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.se-nav-link:hover,
+.se-nav-link.active {
+    color: var(--se-ink);
+    background-color: var(--se-surface);
+}
+
+.se-search .form-control {
+    border-radius: var(--se-radius-sm) 0 0 var(--se-radius-sm);
+    border-color: var(--se-line);
+    min-width: 220px;
+}
+
+.se-search .btn {
+    border-radius: 0 var(--se-radius-sm) var(--se-radius-sm) 0;
+}
+
+/* ---------------------------------------------------------------- button */
+.btn {
+    border-radius: var(--se-radius-sm);
+    font-weight: 600;
+    padding-inline: 1.1rem;
+}
+
+.btn-brand {
+    background-color: var(--se-brand);
+    border-color: var(--se-brand);
+    color: #fff;
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+    background-color: var(--se-brand-dark);
+    border-color: var(--se-brand-dark);
+    color: #fff;
+}
+
+.btn-outline-brand {
+    border-color: var(--se-brand);
+    color: var(--se-brand);
+}
+
+.btn-outline-brand:hover {
+    background-color: var(--se-brand);
+    color: #fff;
+}
+
+/* ---------------------------------------------------------------- hero */
+.se-hero {
+    background-color: #111a2e;
+    color: #f8fafc;
+    border-radius: var(--se-radius);
+    padding: 3rem 2.75rem;
+}
+
+.se-hero h1 {
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+/* ---------------------------------------------------------------- kartu */
+.se-card {
+    background-color: var(--se-white);
+    border: 1px solid var(--se-line);
+    border-radius: var(--se-radius);
+    box-shadow: var(--se-shadow);
+    height: 100%;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.se-card:hover {
+    border-color: #cfd8e5;
+    box-shadow: var(--se-shadow-hover);
+}
+
+.se-card-body {
+    padding: 1.15rem 1.25rem 1.35rem;
+}
+
+.se-thumb {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--se-radius) var(--se-radius) 0 0;
+    background-color: var(--se-surface);
+    display: block;
+}
+
+.se-thumb-sm {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: var(--se-radius-sm);
+    background-color: var(--se-surface);
+}
+
+.se-price {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--se-ink);
+    letter-spacing: -0.01em;
+}
+
+.se-muted-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--se-ink-soft);
+    font-weight: 600;
+}
+
+.se-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    background-color: var(--se-surface);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--se-ink-soft);
+}
+
+.se-chip-active {
+    background-color: var(--se-brand);
+    color: #fff;
+}
+
+/* ---------------------------------------------------------------- panel */
+.se-panel {
+    background-color: var(--se-white);
+    border: 1px solid var(--se-line);
+    border-radius: var(--se-radius);
+    box-shadow: var(--se-shadow);
+}
+
+.se-panel-header {
+    padding: 1.1rem 1.4rem;
+    border-bottom: 1px solid var(--se-line);
+    font-weight: 600;
+}
+
+.se-panel-body {
+    padding: 1.4rem;
+}
+
+.se-summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.45rem 0;
+    color: var(--se-ink-soft);
+}
+
+.se-summary-row strong {
+    color: var(--se-ink);
+}
+
+.se-summary-total {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px dashed var(--se-line);
+    margin-top: 0.75rem;
+    padding-top: 0.85rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+/* ---------------------------------------------------------------- tabel */
+.table-se {
+    --bs-table-bg: transparent;
+    margin-bottom: 0;
+}
+
+.table-se thead th {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--se-ink-soft);
+    font-weight: 700;
+    border-bottom: 1px solid var(--se-line);
+    background-color: var(--se-surface);
+    padding: 0.85rem 1rem;
+    white-space: nowrap;
+}
+
+.table-se tbody td {
+    padding: 0.85rem 1rem;
+    vertical-align: middle;
+    border-color: var(--se-line);
+}
+
+.table-se tbody tr:hover {
+    background-color: #fbfcfe;
+}
+
+/* ---------------------------------------------------------------- form */
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-control,
+.form-select {
+    border-radius: var(--se-radius-sm);
+    border-color: var(--se-line);
+    padding: 0.6rem 0.8rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--se-brand);
+    box-shadow: 0 0 0 0.2rem rgba(47, 75, 216, 0.12);
+}
+
+/* ---------------------------------------------------------------- auth */
+.se-auth-wrap {
+    min-height: calc(100vh - 260px);
+    display: flex;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+.se-auth-card {
+    max-width: 480px;
+    margin-inline: auto;
+    width: 100%;
+}
+
+/* ---------------------------------------------------------------- steps */
+.se-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.se-steps li {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--se-ink-soft);
+    background-color: var(--se-surface);
+    border: 1px solid var(--se-line);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+}
+
+.se-steps li.is-active {
+    background-color: var(--se-brand);
+    border-color: var(--se-brand);
+    color: #fff;
+}
+
+/* ---------------------------------------------------------------- admin */
+.se-admin-body {
+    background-color: var(--se-surface);
+    min-height: 100vh;
+}
+
+.se-admin-shell {
+    display: flex;
+    min-height: 100vh;
+}
+
+.se-sidebar {
+    width: 260px;
+    flex: 0 0 260px;
+    background-color: #0d1526;
+    color: #c8d2e2;
+    padding: 1.6rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.se-sidebar .se-brand,
+.se-sidebar .se-brand span {
+    color: #ffffff;
+}
+
+.se-sidebar-role {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #7f8ca3;
+}
+
+.se-sidebar-heading {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #7f8ca3;
+    margin: 0 0 0.6rem 0.5rem;
+    font-weight: 700;
+}
+
+.se-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+}
+
+.se-sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--se-radius-sm);
+    color: #c8d2e2;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.se-sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+}
+
+.se-sidebar-link.active {
+    background-color: var(--se-brand);
+    color: #ffffff;
+}
+
+.se-sidebar-footer {
+    margin-top: auto;
+    font-size: 0.8rem;
+    color: #7f8ca3;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1rem;
+}
+
+.se-admin-main {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.se-admin-topbar {
+    background-color: var(--se-white);
+    border-bottom: 1px solid var(--se-line);
+    padding: 0.9rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.se-admin-content {
+    padding: 1.8rem 1.6rem 3rem;
+}
+
+.se-stat-card {
+    background-color: var(--se-white);
+    border: 1px solid var(--se-line);
+    border-radius: var(--se-radius);
+    padding: 1.15rem 1.25rem;
+    height: 100%;
+    box-shadow: var(--se-shadow);
+}
+
+.se-stat-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.se-stat-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--se-ink-soft);
+    font-weight: 600;
+}
+
+/* ---------------------------------------------------------------- misc */
+.se-empty {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: var(--se-ink-soft);
+}
+
+.se-divider {
+    border-top: 1px solid var(--se-line);
+    margin: 1.25rem 0;
+}
+
+.se-footer {
+    background-color: #0d1526;
+    color: #9fadc2;
+    padding: 2.6rem 0 1.6rem;
+    margin-top: 3rem;
+}
+
+.se-footer h6 {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.se-footer a {
+    color: #9fadc2;
+}
+
+.se-footer a:hover {
+    color: #ffffff;
+}
+
+.pagination .page-link {
+    border-radius: 999px;
+    margin: 0 0.15rem;
+    border-color: var(--se-line);
+    color: var(--se-ink-soft);
+    font-weight: 600;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--se-brand);
+    border-color: var(--se-brand);
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #b3bfd0;
+}
+
+.alert {
+    border-radius: var(--se-radius-sm);
+    border: 1px solid transparent;
+}
+
+.se-auth-error {
+    background-color: #fff5f5;
+    border-color: #ffd7d7;
+    color: #a02b2b;
+}
+
+/* ---------------------------------------------------------------- responsif */
+@media (max-width: 991.98px) {
+    .se-hero {
+        padding: 2.4rem 1.6rem;
+    }
+
+    .se-admin-shell {
+        display: block;
+    }
+
+    .se-sidebar {
+        width: 100%;
+        flex: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .se-sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .se-sidebar-footer,
+    .se-sidebar-heading,
+    .se-sidebar-role {
+        display: none;
+    }
+
+    .se-admin-content {
+        padding: 1.2rem 1rem 2.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .section-pad {
+        padding: 2.25rem 0;
+    }
+
+    .se-search .form-control {
+        min-width: 0;
+    }
+
+    .se-hero {
+        border-radius: var(--se-radius);
+        padding: 2rem 1.25rem;
+    }
+}

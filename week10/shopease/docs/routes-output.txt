@@ -1,0 +1,45 @@
++--------+----------------------------------+-------------------------+---------------------------------------------------------+--------------------------+---------------------+
+| Method | Route                            | Name                    | Handler                                                 | Before Filters           | After Filters       |
++--------+----------------------------------+-------------------------+---------------------------------------------------------+--------------------------+---------------------+
+| GET    | /                                | home                    | \App\Controllers\HomeController::index                  | csrf                     |                     |
+| GET    | about                            | Â»                       | \App\Controllers\HomeController::about                  | csrf                     |                     |
+| GET    | contact                          | Â»                       | \App\Controllers\HomeController::contact                | csrf                     |                     |
+| GET    | catalog                          | Â»                       | \App\Controllers\ProductController::catalog             | csrf                     |                     |
+| GET    | product/([0-9]+)                 | product.detail          | \App\Controllers\ProductController::detail/$1           | csrf                     |                     |
+| GET    | login                            | Â»                       | \App\Controllers\AuthController::login                  | csrf guest               | guest               |
+| GET    | register                         | Â»                       | \App\Controllers\AuthController::register               | csrf guest               | guest               |
+| GET    | cart                             | cart.index              | \App\Controllers\CartController::index                  | csrf auth:customer       | auth:customer       |
+| GET    | checkout                         | checkout.index          | \App\Controllers\CheckoutController::index              | csrf auth:customer       | auth:customer       |
+| GET    | orders                           | orders.index            | \App\Controllers\OrderController::index                 | csrf auth:customer       | auth:customer       |
+| GET    | orders/([0-9]+)                  | orders.detail           | \App\Controllers\OrderController::detail/$1             | csrf auth:customer       | auth:customer       |
+| GET    | admin/dashboard                  | admin.dashboard         | \App\Controllers\Admin\DashboardController::index       | csrf auth:admin,operator | auth:admin,operator |
+| GET    | admin/orders                     | admin.orders.index      | \App\Controllers\Admin\OrderController::index           | csrf auth:admin,operator | auth:admin,operator |
+| GET    | admin/orders/([0-9]+)            | admin.orders.detail     | \App\Controllers\Admin\OrderController::detail/$1       | csrf auth:admin,operator | auth:admin,operator |
+| GET    | admin/categories                 | admin.categories.index  | \App\Controllers\Admin\CategoryController::index        | csrf auth:admin          | auth:admin          |
+| GET    | admin/categories/create          | admin.categories.create | \App\Controllers\Admin\CategoryController::create       | csrf auth:admin          | auth:admin          |
+| GET    | admin/categories/([0-9]+)/edit   | admin.categories.edit   | \App\Controllers\Admin\CategoryController::edit/$1      | csrf auth:admin          | auth:admin          |
+| GET    | admin/products                   | admin.products.index    | \App\Controllers\Admin\ProductController::index         | csrf auth:admin          | auth:admin          |
+| GET    | admin/products/create            | admin.products.create   | \App\Controllers\Admin\ProductController::create        | csrf auth:admin          | auth:admin          |
+| GET    | admin/products/([0-9]+)/edit     | admin.products.edit     | \App\Controllers\Admin\ProductController::edit/$1       | csrf auth:admin          | auth:admin          |
+| GET    | admin/payments                   | admin.payments.index    | \App\Controllers\Admin\PaymentController::index         | csrf auth:admin          | auth:admin          |
+| GET    | admin/reports                    | admin.reports.index     | \App\Controllers\Admin\ReportController::index          | csrf auth:admin          | auth:admin          |
+| POST   | login                            | login.attempt           | \App\Controllers\AuthController::attemptLogin           | csrf guest               | guest               |
+| POST   | register                         | register.attempt        | \App\Controllers\AuthController::attemptRegister        | csrf guest               | guest               |
+| POST   | logout                           | Â»                       | \App\Controllers\AuthController::logout                 | csrf auth                | auth                |
+| POST   | cart/add                         | cart.add                | \App\Controllers\CartController::add                    | csrf auth:customer       | auth:customer       |
+| POST   | cart/update                      | cart.update             | \App\Controllers\CartController::update                 | csrf auth:customer       | auth:customer       |
+| POST   | cart/remove/([0-9]+)             | cart.remove             | \App\Controllers\CartController::remove/$1              | csrf auth:customer       | auth:customer       |
+| POST   | checkout/address                 | checkout.address        | \App\Controllers\CheckoutController::storeAddress       | csrf auth:customer       | auth:customer       |
+| POST   | checkout/process                 | checkout.process        | \App\Controllers\CheckoutController::process            | csrf auth:customer       | auth:customer       |
+| POST   | orders/([0-9]+)/payment          | orders.payment          | \App\Controllers\OrderController::uploadProof/$1        | csrf auth:customer       | auth:customer       |
+| POST   | admin/orders/([0-9]+)/status     | admin.orders.status     | \App\Controllers\Admin\OrderController::updateStatus/$1 | csrf auth:admin,operator | auth:admin,operator |
+| POST   | admin/shipments/([0-9]+)         | admin.shipments.store   | \App\Controllers\Admin\ShipmentController::store/$1     | csrf auth:admin,operator | auth:admin,operator |
+| POST   | admin/categories                 | admin.categories.store  | \App\Controllers\Admin\CategoryController::store        | csrf auth:admin          | auth:admin          |
+| POST   | admin/categories/([0-9]+)        | admin.categories.update | \App\Controllers\Admin\CategoryController::update/$1    | csrf auth:admin          | auth:admin          |
+| POST   | admin/categories/([0-9]+)/delete | admin.categories.delete | \App\Controllers\Admin\CategoryController::delete/$1    | csrf auth:admin          | auth:admin          |
+| POST   | admin/products                   | admin.products.store    | \App\Controllers\Admin\ProductController::store         | csrf auth:admin          | auth:admin          |
+| POST   | admin/products/([0-9]+)          | admin.products.update   | \App\Controllers\Admin\ProductController::update/$1     | csrf auth:admin          | auth:admin          |
+| POST   | admin/products/([0-9]+)/delete   | admin.products.delete   | \App\Controllers\Admin\ProductController::delete/$1     | csrf auth:admin          | auth:admin          |
+| POST   | admin/payments/([0-9]+)/approve  | admin.payments.approve  | \App\Controllers\Admin\PaymentController::approve/$1    | csrf auth:admin          | auth:admin          |
+| POST   | admin/payments/([0-9]+)/reject   | admin.payments.reject   | \App\Controllers\Admin\PaymentController::reject/$1     | csrf auth:admin          | auth:admin          |
++--------+----------------------------------+-------------------------+---------------------------------------------------------+--------------------------+---------------------+
